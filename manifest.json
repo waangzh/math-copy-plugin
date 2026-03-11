@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "AI数学公式复制助手（Word）",
+  "version": "0.1.0",
+  "description": "识别网页中的数学公式，并一键复制为 Word 内部可编辑的数学公式（OMML）。",
+  "action": {
+    "default_title": "AI数学公式复制助手（Word）",
+    "default_popup": "src/popup/popup.html"
+  },
+  "permissions": ["activeTab", "clipboardWrite", "scripting", "contextMenus", "notifications"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "commands": {
+    "copy-selection": {
+      "suggested_key": { "default": "Ctrl+Shift+M", "mac": "Command+Shift+M" },
+      "description": "复制选中公式到Word（OMML）"
+    },
+    "copy-all": {
+      "suggested_key": { "default": "Ctrl+Shift+Y", "mac": "Command+Shift+Y" },
+      "description": "复制页面所有公式到Word（OMML）"
+    },
+    "copy-selection-mathml": {
+      "suggested_key": { "default": "Ctrl+Shift+K", "mac": "Command+Shift+K" },
+      "description": "复制选中公式为 MathML（文本）"
+    },
+    "copy-all-mathml": {
+      "suggested_key": { "default": "Ctrl+Shift+U", "mac": "Command+Shift+U" },
+      "description": "复制页面所有公式为 MathML（文本）"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/vendor/katex.min.js", "src/vendor/mathml2omml.esm.js", "src/injected/copy.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
+

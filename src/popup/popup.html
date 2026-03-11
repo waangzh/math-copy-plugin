@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI公式复制到Word</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="title">AI公式复制到Word（OMML）</div>
+      <div class="subtitle">
+        已识别公式：<span id="count">-</span>
+      </div>
+
+      <div class="buttons">
+        <button id="btnSelection" class="btn">复制选中公式</button>
+        <button id="btnAll" class="btn primary">复制页面所有公式</button>
+      </div>
+      <div class="buttons">
+        <button id="btnSelectionMathml" class="btn">复制选中为MathML</button>
+        <button id="btnAllMathml" class="btn">复制全部为MathML</button>
+      </div>
+
+      <div class="status" id="status" role="status"></div>
+
+      <details class="tips">
+        <summary>提示</summary>
+        <ul>
+          <li>建议先在 AI 页面里框选包含公式的文本/公式区域，再点“复制选中公式”。</li>
+          <li>若页面里只有 LaTeX 文本（未渲染），插件会把 LaTeX 转成 Word 可编辑公式。</li>
+          <li>粘贴到 Word 时建议用普通粘贴（Ctrl+V / ⌘V），不要“仅保留文本”。</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- LaTeX -> MathML：KaTeX（本地内置，离线可用） -->
+    <script src="../vendor/katex.min.js"></script>
+    <!-- MathML -> OMML / Copy -->
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
+
