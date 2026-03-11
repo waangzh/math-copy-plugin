@@ -19,13 +19,14 @@
 - 鼠标移动到公式上，会出现浅蓝色高亮背景和一个 **“复制”** 按钮  
   - 直接点击：复制为 **Word 可编辑公式**（推荐）
   - 按住 `Alt` 再点击：复制该公式的 **MathML 文本**
+<img width="804" height="362" alt="image" src="https://github.com/user-attachments/assets/22901925-83f6-4491-83cb-65da9548685d" />
 
 ### 在 Word 里
 
 1. 将光标放在需要插入公式的位置
 2. 在网页中点击“复制”后，切回 Word
-3. 使用 **普通粘贴**：`Ctrl+V`（Windows）或 `⌘+V`（macOS）  
-   - 如果你在 Word 中选择“仅保留文本”，则会丢失公式对象，只保留纯文本
+3. 使用 **普通粘贴**：`Ctrl+V`（Windows）或 `⌘+V`（macOS）
+4. 粘贴到word，再选择“仅保留文本”
 
 ### 备用入口
 
